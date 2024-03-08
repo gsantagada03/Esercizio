@@ -1,0 +1,12 @@
+
+LAVANDERIA (Giacomo, Giuseppe, Giulia L., Lorenzo)
+
+In avvio viene chiesto all'utente di registrarsi, inserendo nome, password e credito; questi parametri vengono verificati
+e se non rispettano i criteri prestabiliti l'utente riceve un messaggio di errore e dovrà inserirli nuovamente.
+Successivamente si passa al login, dove l'utente deve inserire nome, password (devono corrispondere ai dati inseriti in
+precedenza) e soldi; se le credenziali non corrispondo riceve un messaggio di errore e deve inserirle nuovamente.
+Se il login ha successo l'utente può accedere alla lavanderia.
+
+L'utente ha poi la possibiltà di usufruire di sconti e promozioni: se il credito è superiore a 20 euro, ogni panno avrà un 
+costo di lavaggio di 0.50 euro, se invece il credito raggiunge 0 euro l'utente ha la possibilità di ricaricare 10 euro
+pagandoli solo 8 euro.

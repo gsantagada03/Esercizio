@@ -66,31 +66,38 @@ public class Lavanderia {
         // lavatrici
         for (int i = 1; i < panni; i++) {
 
+            // se il credito è maggiore di 20, c'è lo sconto dei panni, in cui il costo è di 50 centesimi a panno
             if (credito > 20) {
                 soldiSpesi += 0.50;
                 credito -= 0.50;
+            //se invece il credito è uguale a 20 o minore, il costo diventa 1 euro a panno
             } else {
-                soldiSpesi += 0.50;
+                soldiSpesi += 1;
                 credito -= 1;
             }
-
+            
+            // in questa condizione si contano le lavatrici occupate, se il contatore è uguale a 10, le lavatrici occupate aumentano
             if (contatoreLavatrici == 10) {
                 contatoreLavatrici = 0;
                 lavatriciOccupate++;
             }
             contatoreLavatrici++;
 
+            //se il credito è minore di 1, si manda un messaggio in cui si chiede se si vuole ricaricare 10 euro al prezzo di 8
             if (credito < 1) {
                 System.out.println("vuoi ricaricare 10 euro al prezzo di 8?");
                 String risposta = sc.next();
+                //se la risposta è positiva , il credito aumenta di 10
                 if (risposta.equals("si")) {
                     credito += 10;
+                // se la risposta è negativa, si esce dal ciclo
                 } else {
                     break;
                 }
             }
         }
 
+        //resoconto finale delle lavatrici totali occupate, il credio rimanente ed i soldi spesi
         System.out.println(lavatriciOccupate + " " + credito + " " + soldiSpesi);
     }
 }

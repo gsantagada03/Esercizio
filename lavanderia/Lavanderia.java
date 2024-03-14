@@ -5,17 +5,17 @@ public class Lavanderia {
         Scanner sc = new Scanner(System.in);
         String nome;
         String password;
-        double importo;
+        double credito;
         String nomeLogin;
         String passwordLogin;
-        int lavatriciOccupate = 0;
+        int lavatriciOccupate = 1;
         int panni = 0;
         double soldiSpesi = 0;
+        int contatoreLavatrici = 0;
 
         // controlli per verificare se l'utente si è registrato correttamente
 
         // nome
-
         do {
             System.out.println("Inserisci il tuo nome");
             nome = sc.nextLine();
@@ -37,62 +37,60 @@ public class Lavanderia {
         // importo
         do {
             System.out.println("Inserisci l'importo");
-            importo = sc.nextDouble();
-            if (importo < 1.00) {
+            credito = sc.nextDouble();
+            if (credito < 1.00) {
                 System.out.println("devi inserire almeno 1 euro");
             }
-        } while (importo < 1.00);
+        } while (credito < 1.00);
 
         // login
         do {
             System.out.println("inserisci nome");
             nomeLogin = sc.next();
-            if( !(nomeLogin.equals(nome))){
+            if (!(nomeLogin.equals(nome))) {
                 System.out.println("nome errato");
             }
-        }  while ( !(nomeLogin.equals(nome)));
-                
+        } while (!(nomeLogin.equals(nome)));
+
         do {
             System.out.println("inserisci password");
             passwordLogin = sc.next();
-            if( !(passwordLogin.equals(nome))){
-                System.out.println("password errato");
+            if (!(passwordLogin.equals(nome))) {
+                System.out.println("password errata");
             }
-        }  while ( !(passwordLogin.equals(password)));
-                
+        } while (!(passwordLogin.equals(password)));
 
         System.out.println("quanti panni vuoi caricare?");
         panni = sc.nextInt();
-        
-        //lavatrici
-        for(int i = 0; i < panni; i++){
-            if(panni == 10){
+
+        // lavatrici
+        for (int i = 1; i < panni; i++) {
+
+            if (credito > 20) {
+                soldiSpesi += 0.50;
+                credito -= 0.50;
+            } else {
+                soldiSpesi += 0.50;
+                credito -= 1;
+            }
+
+            if (contatoreLavatrici == 10) {
+                contatoreLavatrici = 0;
                 lavatriciOccupate++;
             }
-            if(importo > 20){
-                importo -= 0.50;
-                soldiSpesi += 0.50;
-            
-            }else if(importo == 0){
-                System.out.println("Credito esaurito . Vuoi ricaricare 10 euro pagandone 8?");
-                String scelta = sc.nextLine();
-                if(scelta.equals("si")){
-                    importo += 10;
-                    continue;
-                }else if(scelta.equals("no")){
+            contatoreLavatrici++;
+
+            if (credito < 1) {
+                System.out.println("vuoi ricaricare 10 euro al prezzo di 8?");
+                String risposta = sc.next();
+                if (risposta.equals("si")) {
+                    credito += 10;
+                } else {
                     break;
-                }else if(importo < 20  ){
-                    importo -= 1.00;
-                    soldiSpesi += 1.00;
-                    
                 }
             }
         }
 
-       
-
-        System.out.println(importo + " " + lavatriciOccupate + " " + soldiSpesi);
-
-
+        System.out.println(lavatriciOccupate + " " + credito + " " + soldiSpesi);
     }
 }

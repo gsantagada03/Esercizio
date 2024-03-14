@@ -10,5 +10,6 @@ Se il login ha successo l'utente può accedere alla lavanderia.
 L'utente può poi scegliere se ricaricare il credito o selezionare un numero di panni da lavare.
 Ogni 10 panni viene aggiunta una lavatrice utilizzata.
 
-L'utente ha poi la possibiltà di usufruire di sconti e promozioni: se sceglie di effettuare una ricarica e il suo credito è pari a 0 euro ouò decidere di ricaricare 10 euro pagandoli solo 8 euro di credito; nel momento in cui seleziona quanti panni lavare, se il credito è superiore a 20 euro, ogni panno avrà un costo di lavaggio di 0.50 euro anzichè 1 euro.
+L'utente ha poi la possibiltà di usufruire di sconti e promozioni: se sceglie di effettuare una ricarica e il suo credito è pari a 0 euro ouò decidere di ricaricare 10 euro pagandoli solo 8 euro di credito;
+nel momento in cui seleziona quanti panni lavare, se il credito è superiore a 20 euro, ogni panno avrà un costo di lavaggio di 0.50 euro anzichè 1 euro.
 
